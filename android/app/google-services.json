@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1079070914492",
+    "project_id": "gcesoft-78e0d",
+    "storage_bucket": "gcesoft-78e0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079070914492:android:33386c940e1f6bff0c9db9",
+        "android_client_info": {
+          "package_name": "jo.com.gcesoft.HRV"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH9QfQuI2F0Hwg4pRSDbT0NXv_gP78eKg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

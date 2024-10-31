@@ -3,4 +3,4 @@
 
 - Android & IOS
 - Clean version
-- ✨ By Hasan Abu Ghalyoun ✨
+- ✨ By  Mohammad Alshara ✨

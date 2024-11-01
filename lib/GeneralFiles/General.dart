@@ -1014,6 +1014,8 @@ String fireBaseTopic(String channel) =>
 Future<void> notificationSubscribe(String channel) async {
   String key = fireBaseTopic(channel);
   if (!Platform.isWindows)
+         
+
     await FirebaseMessaging.instance.subscribeToTopic(key);
 }
 

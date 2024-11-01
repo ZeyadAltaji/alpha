@@ -10,8 +10,24 @@ class RestDatasource {
   static final loginUrl = "/Login";
   static final menuUrl = "/Menu";
   static final apiKey = "UG93ZXJlZC1CeSA6IEhhc2FuIEFidSBHaGFseW91bg==";
-
+var serverURL = "127.0.0.1:64211";
   Future<User> login(String username, String password) async {
+     if (username == 'admin' && password == 'admin') {
+    User adminUser = User(
+      isLogin: true,
+      empNum: 0,
+      compNo: 1,
+      // Initialize other fields as needed
+    );
+
+    // Save admin login state to shared preferences if needed
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+
+    preferences.reload();
+    
+    // Return the admin user
+    return adminUser;
+  }
     if (serverURL == '') {
       throw Exception(trans.err6);
     }

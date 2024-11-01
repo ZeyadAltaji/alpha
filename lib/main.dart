@@ -60,41 +60,100 @@ Future onDidReceiveLocalNotification(
 Future selectNotification(NotificationResponse notificationResponse) async {}
  
 
+// Future<void> main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp();
+
+//      await Firebase.initializeApp();
+//   FirebaseMessaging messaging = FirebaseMessaging.instance;
+//   await messaging.requestPermission(
+//     alert: true,
+//     announcement: false,
+//     badge: true,
+//     carPlay: false,
+//     criticalAlert: false,
+//     provisional: false,
+//     sound: true,
+//   );
+
+//     // await messaging.subscribeToTopic("hr-n-ClientNumber-1-UsersTarget-2");
+
+// const AndroidInitializationSettings initializationSettingsAndroid = AndroidInitializationSettings('@mipmap/ic_launcher');
+// final InitializationSettings initializationSettings = InitializationSettings(android: initializationSettingsAndroid);
+// await flutterLocalNotificationsPlugin.initialize(initializationSettings); // line error 
+
+ 
+
+//   await flutterLocalNotificationsPlugin.initialize(
+//     initializationSettings,
+//     onDidReceiveNotificationResponse: selectNotification,
+//   );
+//  const AndroidNotificationChannel channel = AndroidNotificationChannel(
+//     'high_importance_channel',
+//     'High Importance Notifications',
+//     description: 'This channel is used for important notifications.',
+//     importance: Importance.high,
+//   );
+//   await flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+//       ?.createNotificationChannel(channel);
+//   FirebaseMessaging.onMessage.listen(_firebaseMessaginForeroundHandler);
+//   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+ 
+//   runApp(
+//     MaterialApp(
+//       home: SplashScreen(),
+//     ),
+//   );
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-   FirebaseMessaging messaging = FirebaseMessaging.instance;
 
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  await messaging.requestPermission(
+    alert: true,
+    announcement: false,
+    badge: true,
+    carPlay: false,
+    criticalAlert: false,
+    provisional: false,
+    sound: true,
+  );
 
-    // await messaging.subscribeToTopic("hr-n-ClientNumber-1-UsersTarget-2");
-    await messaging.subscribeToTopic("news");
+  
 
-const AndroidInitializationSettings initializationSettingsAndroid = AndroidInitializationSettings('@mipmap/ic_launcher');
-final InitializationSettings initializationSettings = InitializationSettings(android: initializationSettingsAndroid);
-await flutterLocalNotificationsPlugin.initialize(initializationSettings);
-
- 
+  const AndroidInitializationSettings initializationSettingsAndroid = AndroidInitializationSettings('@mipmap/ic_launcher');
+const DarwinInitializationSettings initializationSettingsIOS = DarwinInitializationSettings();
+  final InitializationSettings initializationSettings = InitializationSettings(
+    android: initializationSettingsAndroid,
+    iOS: initializationSettingsIOS,
+  );
 
   await flutterLocalNotificationsPlugin.initialize(
     initializationSettings,
     onDidReceiveNotificationResponse: selectNotification,
   );
- const AndroidNotificationChannel channel = AndroidNotificationChannel(
+
+  const AndroidNotificationChannel channel = AndroidNotificationChannel(
     'high_importance_channel',
     'High Importance Notifications',
     description: 'This channel is used for important notifications.',
     importance: Importance.high,
   );
-  await flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+
+  await flutterLocalNotificationsPlugin
+      .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
       ?.createNotificationChannel(channel);
+
   FirebaseMessaging.onMessage.listen(_firebaseMessaginForeroundHandler);
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-
+ 
   runApp(
     MaterialApp(
       home: SplashScreen(),
     ),
   );
+
+
 }
 
 Future<bool> initalize() async {
@@ -230,12 +289,14 @@ void newCR(RemoteMessage message) {
   String fDescAr = '${message.data["fDescAr"]}';
   DateTime addDate = DateTime.parse('${message.data["addDate"]}');
   String form = '${message.data["form"]}';
-  wFrecords
-      .where((x) =>
-          x.fID == fID &&
-          x.requestType == requestType &&
-          x.empName == empName)
-      .length;
+  if (wFrecords != null) {
+    wFrecords
+        .where((x) =>
+            x.fID == fID &&
+            x.requestType == requestType &&
+            x.empName == empName)
+        .length;
+  }
   WorkFlowRecord n = new WorkFlowRecord(
       addDate: addDate,
       empName: empName,

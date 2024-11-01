@@ -27,11 +27,13 @@ RoundedLoadingButtonController _btnController =
     username_ = username;
     password_ = password;
     allowNotifications = true;
+
     notificationSubscribe('cr');
     notificationSubscribe('m');
     notificationSubscribe('n');
     notificationSubscribe('logout');
     notificationSubscribe('refresh');
+
     // startSignalR();
   } catch (e) {
     _view.onLoginError(e.toString());

@@ -40,7 +40,7 @@ class _VacationRequestState extends State<VacationRequest> {
   }
 
   Future<void> _submit() async {
-    if (dropdownValue == null || dropdownValue.parValue == 0) {
+    if (dropdownValue.parValue == 0) {
       toast(
           '${arEn('لا يمكن ارسال الطلب بدون نوع محدد', 'The request cannot be sent without a specific type')}');
       return;
@@ -53,7 +53,7 @@ class _VacationRequestState extends State<VacationRequest> {
       return;
     }
 
-    if (dateDef <= 0 || dateDef == null) {
+    if (dateDef <= 0) {
       toast(maxValue.parNameAr! +
           '  ' +
           maxValue.parValue.toString() +

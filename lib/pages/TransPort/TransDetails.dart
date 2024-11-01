@@ -3,7 +3,7 @@ import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 
 class TransDetails extends StatefulWidget {
-  final dynamic? details;
+  final dynamic details;
   final double? total;
   const TransDetails({this.total, Key? key, this.details}) : super(key: key);
 

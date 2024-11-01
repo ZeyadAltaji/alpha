@@ -34,7 +34,7 @@ void setSeen(int empNo2) {
 }
 
 void sendMSG(String msg, int refId, ValueChanged<bool> sendingDone) async {
-  if (msg == null || msg == '') {
+  if (msg == '') {
     sendingDone(false);
     return;
   }
@@ -212,15 +212,13 @@ class _ChatPageState extends State<ChatPage> implements AuthStateListener {
                                                       x.id ==
                                                       mcon(empnum!)[index].refId)
                                                   .first;
-                                              if (refM != null) {
-                                                controller.scrollToIndex(
-                                                    mcon(empnum!).indexOf(refM),
-                                                    preferPosition:
-                                                        AutoScrollPosition
-                                                            .begin,
-                                                   );
-                                              }
-                                            },
+                                              controller.scrollToIndex(
+                                                  mcon(empnum!).indexOf(refM),
+                                                  preferPosition:
+                                                      AutoScrollPosition
+                                                          .begin,
+                                                 );
+                                                                                        },
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [

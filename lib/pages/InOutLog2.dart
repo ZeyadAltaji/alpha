@@ -287,7 +287,7 @@ class _GetListState extends State<GetList> {
   List<String> lstValues = [];
   void doSearch(List d) {
     data = d;
-    if (d != null && d.length > 0) {
+    if (d.length > 0) {
       lst.clear();
       lstValues.clear();
       for (var dc in d) {

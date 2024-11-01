@@ -631,7 +631,6 @@ class Colleague {
   final String? empname;
   String? image;
   int? get unreaded {
-    if (conversations == null) return 0;
     return conversations.where((x) => x.sender == empnum && x.seen == 0).length;
   }
 

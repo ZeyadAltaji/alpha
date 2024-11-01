@@ -53,7 +53,7 @@ class LoginScreenState extends State<LoginScreen>
         SizedBox(
           height: height * 0.015,
         ),
-        (compLOGO != '' && compLOGO != null)
+        (compLOGO != '')
             ? new GestureDetector(
                 onLongPress: () async {
                   final preferences = await SharedPreferences.getInstance();
@@ -217,7 +217,7 @@ class _LoginFormState extends State<LoginForm> {
       return;
     }
 
-    if (form!.validate()) {
+    if (form.validate()) {
       setState(() {
         FocusScope.of(context).unfocus();
       });

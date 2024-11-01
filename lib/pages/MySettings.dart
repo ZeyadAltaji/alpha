@@ -299,7 +299,7 @@ class _MySettingsState extends State<MySettings> {
           selectedImage = sFILE;
           image = true;
           List<int> imageBytes = selectedImage!.readAsBytesSync();
-          path = pickedFile!.path;
+          path = pickedFile.path;
           saveMyImage(base64Encode(imageBytes));
         });
       }

@@ -46,7 +46,7 @@ class _LeaveRequestState extends State<LeaveRequest> {
   }
 
   Future<void> _submit() async {
-    if (dropdownValue == null || dropdownValue.parValue == 0) {
+    if (dropdownValue.parValue == 0) {
       toast(
           '${arEn('لا يمكن ارسال الطلب بدون نوع محدد', 'The request cannot be sent without a specific type')}');
       return;

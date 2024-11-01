@@ -180,26 +180,24 @@ Future<bool> initalize() async {
   companyName = preferences.getString('companyName')!;
 String theme = preferences.getString('theme') ?? '1';
 
-  if (theme != null) {
-    if (theme == "1") {
-      pc = Colors.lightBlue;
-    }
-    if (theme == "2") {
-      pc = Colors.green;
-    }
-    if (theme == "3") {
-      pc = Colors.grey;
-    }
-    if (theme == "4") {
-      pc = Colors.orangeAccent;
-    }
-    if (theme == "5") {
-      int a = int.parse(preferences.getString('themeColorA')!);
-      int r = int.parse(preferences.getString('themeColorR')!);
-      int g = int.parse(preferences.getString('themeColorG')!);
-      int b = int.parse(preferences.getString('themeColorB')!);
-      pc = Color.fromARGB(a, r, g, b);
-    }
+  if (theme == "1") {
+    pc = Colors.lightBlue;
+  }
+  if (theme == "2") {
+    pc = Colors.green;
+  }
+  if (theme == "3") {
+    pc = Colors.grey;
+  }
+  if (theme == "4") {
+    pc = Colors.orangeAccent;
+  }
+  if (theme == "5") {
+    int a = int.parse(preferences.getString('themeColorA')!);
+    int r = int.parse(preferences.getString('themeColorR')!);
+    int g = int.parse(preferences.getString('themeColorG')!);
+    int b = int.parse(preferences.getString('themeColorB')!);
+    pc = Color.fromARGB(a, r, g, b);
   }
   timeDilation = 0.80;
   if (myProtocol == "https://") HttpOverrides.global = new MyHttpOverrides();
@@ -232,14 +230,12 @@ void newCR(RemoteMessage message) {
   String fDescAr = '${message.data["fDescAr"]}';
   DateTime addDate = DateTime.parse('${message.data["addDate"]}');
   String form = '${message.data["form"]}';
-  if (wFrecords != null) {
-    wFrecords
-        .where((x) =>
-            x.fID == fID &&
-            x.requestType == requestType &&
-            x.empName == empName)
-        .length;
-  }
+  wFrecords
+      .where((x) =>
+          x.fID == fID &&
+          x.requestType == requestType &&
+          x.empName == empName)
+      .length;
   WorkFlowRecord n = new WorkFlowRecord(
       addDate: addDate,
       empName: empName,
@@ -390,9 +386,7 @@ void newNews(RemoteMessage message) {
   int fID = int.parse('${message.data["FID"]}');
   String subject = '${message.data["Subject"]}';
   String description = '${message.data["fDescAr"]}';
-  if (news != null) {
-    news.where((x) => x.srl == fID).length;
-  }
+  news.where((x) => x.srl == fID).length;
   News nwe = new News(srl: fID, description: description, subject: subject);
   news.add(nwe);
   wFNews = [];

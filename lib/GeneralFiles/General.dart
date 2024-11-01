@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
-import 'dart:typed_data';
 import 'dart:ui';
 import 'package:alpha/GeneralFiles/Dialogs.dart';
 import 'package:alpha/auth.dart';
@@ -250,9 +249,6 @@ String dayName(DateTime n) {
 }
 
 bool isNumeric(String s) {
-  if (s == null) {
-    return false;
-  }
   return double.parse(s) != null;
 }
 
@@ -810,11 +806,9 @@ void loadConversations() async {
   if (me == null) return;
   int lastId = 0;
   conversations = await DBHelper().getMessages();
-  if (conversations != null) {
-    if (conversations.length > 0) {
-      conversations.sort((a, b) => a.id!.compareTo(b.id!));
-      lastId = conversations.last.id!;
-    }
+  if (conversations.length > 0) {
+    conversations.sort((a, b) => a.id!.compareTo(b.id!));
+    lastId = conversations.last.id!;
   }
   Uri _baseUrl = Uri.parse('$link/General');
   final response = await http.post(

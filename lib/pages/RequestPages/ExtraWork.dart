@@ -64,14 +64,14 @@ class _ExtraWorkPageState extends State<ExtraWorkPage> {
           "${arEn('تاريخ البداية اقل من تاريخ النهاية', 'The start date is lower than the end date')}");
       return;
     }
-    if (_hours <= 0 && _minutes <= 0 || _hours == null) {
+    if (_hours <= 0 && _minutes <= 0) {
       setState(() {
         hoursFocus!.requestFocus();
       });
       return;
     }
 
-    if (_minutes == 0 || _minutes == null) {
+    if (_minutes == 0) {
       setState(() {
         minutesFocus!.requestFocus();
         return;

@@ -153,7 +153,7 @@ class _MissingPrintState extends State<MissingPrint> {
                           hintText: "${arEn('ملاحظات', 'Notes')}"),
                       controller: _c,
                     ),
-                    ButtonBar(
+                    OverflowBar(
                       children: <Widget>[
                         greenOK('${arEn('حفظ', 'save')}',
                             () async => doSave(dayTime, _c.text, isIN)),
@@ -188,7 +188,7 @@ class _MissingPrintState extends State<MissingPrint> {
               ),
             ],
           ),
-          ButtonBar(
+          OverflowBar(
             children: [
               it
                   ? redCancel('${arEn('تسجيل دخول', 'Login')}', () {

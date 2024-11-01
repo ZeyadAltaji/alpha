@@ -152,7 +152,7 @@ class _MyLogPageState extends State<MyLogPage> {
           future: getDetails(log),
           builder: (context, s) {
             if (s.hasData) {
-              List? data = s.data as List?;
+              List? data = s.data;
               data!.sort((a, b) => a['levelNumber'].compareTo(b['levelNumber']));
               if (data.length == 0) return SizedBox();
               int maxLevel = data.last['levelNumber'];
@@ -481,11 +481,11 @@ class _MyLogPageState extends State<MyLogPage> {
                           log.requestType == 123 && log.statusWF == 2)
                       ? TextButton(
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
+                            backgroundColor: WidgetStateProperty.all<Color>(
                                 Colors.transparent),
-                            overlayColor: MaterialStateProperty.all<Color>(
+                            overlayColor: WidgetStateProperty.all<Color>(
                                 Color(0xffecb1c5)), // splash
-                            foregroundColor: MaterialStateProperty.all<Color>(
+                            foregroundColor: WidgetStateProperty.all<Color>(
                                 Color(0xffbf2056)),
                           ),
                           child: Text(
@@ -502,12 +502,12 @@ class _MyLogPageState extends State<MyLogPage> {
                           ? TextButton(
                               style: ButtonStyle(
                                 backgroundColor:
-                                    MaterialStateProperty.all<Color>(
+                                    WidgetStateProperty.all<Color>(
                                         Colors.transparent),
-                                overlayColor: MaterialStateProperty.all<Color>(
+                                overlayColor: WidgetStateProperty.all<Color>(
                                     Color(0xffecb1c5)), // splash
                                 foregroundColor:
-                                    MaterialStateProperty.all<Color>(
+                                    WidgetStateProperty.all<Color>(
                                         Color(0xffbf2056)),
                               ),
                               child: Text(

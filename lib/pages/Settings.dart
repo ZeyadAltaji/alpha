@@ -263,9 +263,6 @@ class _SettingPageState extends State<SettingPage> {
       [String image = '', String shortcut = '']) async {
     _btnController.stop();
     _btnController2.stop();
-    if (image == null) {
-      image = '';
-    }
     if (image != '') {
       if (r) {
         showSnackBar(context, translate(companyN));
@@ -285,7 +282,6 @@ class _SettingPageState extends State<SettingPage> {
       String adUnit, String shortcut) async {
     _btnController.success();
     companyName = companyN;
-    if (shortcut == null) shortcut = '';
     if (shortcut != '') shortcut = '$shortcut@';
     WidgetsFlutterBinding.ensureInitialized();
     final preferences = await SharedPreferences.getInstance();

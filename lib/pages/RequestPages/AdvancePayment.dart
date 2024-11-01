@@ -37,14 +37,14 @@ class _AdvancePaymentPageState extends State<AdvancePaymentPage> {
 
   Future<void> _submit() async {
     final form = advanceKEY.currentState;
-    if (_value <= 0 || _value == null) {
+    if (_value <= 0) {
       setState(() {
         valueFocus.requestFocus();
       });
       return;
     }
 
-    if (_months == 0 || _months == null) {
+    if (_months == 0) {
       setState(() {
         monthsFocus.requestFocus();
         return;
@@ -204,7 +204,7 @@ class _AdvancePaymentPageState extends State<AdvancePaymentPage> {
                           if (int.parse(val!) <= 0) {
                             return "${arEn('الرجاء ادخال عدد صحيح', 'Please enter an integer number')}";
                           }
-                          if (int.parse(val!) > maxMonth.parValue!) {
+                          if (int.parse(val) > maxMonth.parValue!) {
                             return arEn(
                                     maxMonth.parNameAr!, maxMonth.parNameEn!) +
                                 ' ' +

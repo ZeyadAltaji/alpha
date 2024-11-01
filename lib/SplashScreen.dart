@@ -254,7 +254,7 @@ class SplashScreenState extends State<SplashScreen>
       ),
       themeMode: darkTheme ? ThemeMode.dark : ThemeMode.light,
       debugShowCheckedModeBanner: false,
-      home: (serverURL == null || myCompanyNumber == '')
+      home: (myCompanyNumber == '')
           ? SettingPage()
           : (me == null || remember == false)
               ? LoginScreen()
@@ -303,7 +303,6 @@ class CustomSplash extends InteractiveInkFeature {
         _clipCallback = _getClipCallback(referenceBox, containedInkWell, rectCallback!),
         _repositionToReferenceBox = !containedInkWell,
         super(controller: controller, referenceBox: referenceBox, color: color!) { // Pass the color parameter here
-    assert(_borderRadius != null);
     controller.addInkFeature(this);
 
     _radiusController = AnimationController(
@@ -324,7 +323,7 @@ class CustomSplash extends InteractiveInkFeature {
     ).animate(_radiusController);
 
     _alpha = IntTween(
-      begin: color?.alpha ?? 0,
+      begin: color.alpha ?? 0,
       end: 0,
     ).animate(_alphaController);
   }
@@ -401,14 +400,14 @@ class CustomSplash extends InteractiveInkFeature {
       canvas.save();
       canvas.transform(transform.storage);
       if (_clipCallback != null) {
-        _clipCanvasWithRect(canvas, _clipCallback!());
+        _clipCanvasWithRect(canvas, _clipCallback());
       }
       canvas.drawCircle(center!, _radius.value, paint);
       canvas.restore();
     } else {
       if (_clipCallback != null) {
         canvas.save();
-        _clipCanvasWithRect(canvas, _clipCallback!(), offset: originOffset);
+        _clipCanvasWithRect(canvas, _clipCallback(), offset: originOffset);
       }
       canvas.drawCircle(center! + originOffset, _radius.value, paint);
       if (_clipCallback != null) canvas.restore();

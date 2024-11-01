@@ -18,9 +18,7 @@ class ViewModelProvider<TViewModel extends ViewModel> extends InheritedWidget {
       {Key? key,
       required TViewModel viewModel,
       required WidgetBuilder childBuilder})
-      : assert(viewModel != null),
-        assert(childBuilder != null),
-        viewModel = viewModel,
+      : viewModel = viewModel,
         super(
             key: key,
             child: ViewModelViewStateManager(
@@ -43,9 +41,7 @@ class ViewModelViewStateManager extends StatefulWidget {
 
   ViewModelViewStateManager(
       {required ViewModel viewModel, required WidgetBuilder childBuilder})
-      : assert(viewModel != null),
-        assert(childBuilder != null),
-        _childBuilder = childBuilder,
+      : _childBuilder = childBuilder,
         _viewModel = viewModel;
 
   @override

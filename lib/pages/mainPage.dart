@@ -282,8 +282,8 @@ Future<void> showUpdateDialog({
       },
     );
 
-    if (news != null && news.length > 0 ||
-        wFrecords != null && wFrecords.length > 0) return;
+    if (news.length > 0 ||
+        wFrecords.length > 0) return;
     Uri _baseUrl = Uri.parse('$myProtocol$serverURL/notifications');
     var res = await http.post(
       _baseUrl,
@@ -454,7 +454,7 @@ Future<void> showUpdateDialog({
                     tooltip: trans.news,
                     icon: Icon(
                       Icons.public,
-                      color: (wFTypes != null && wFTypes.length > 0)
+                      color: (wFTypes.length > 0)
                           ? white
                           : white.withOpacity(0.5),
                     ),
@@ -487,7 +487,7 @@ Future<void> showUpdateDialog({
                     tooltip: trans.workflow,
                     icon: Icon(
                       Icons.notifications_active,
-                      color: (wFTypes != null && wFTypes.length > 0)
+                      color: (wFTypes.length > 0)
                           ? white
                           : white.withOpacity(0.5),
                     ),

@@ -345,7 +345,7 @@ class _WorkFlowPageState extends State<WorkFlowPage> {
                     Text(
                         '${arEn('نوع الطلب : بدل مواصلات', 'Request type : Transportation allowance')}'),
                     Text(
-                      '${arEn('تاريخ الطلب', 'Request date')} :  ${dateFormat2.format(DateTime?.parse(t['date']))}',
+                      '${arEn('تاريخ الطلب', 'Request date')} :  ${dateFormat2.format(DateTime.parse(t['date']))}',
                       textDirection: TextDirection.ltr,
                     ),
                     Text(
@@ -560,14 +560,14 @@ Widget build(BuildContext context) {
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: builder(log),
           ),
-          ButtonBar(
+          OverflowBar(
             children: <Widget>[
               TextButton(
                 child: Text('${arEn('موافقة', 'APPROVE')}'),
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
-                  overlayColor: MaterialStateProperty.all<Color>(olightGren),
-                  foregroundColor: MaterialStateProperty.all<Color>(ogrentext),
+                  backgroundColor: WidgetStateProperty.all<Color>(Colors.transparent),
+                  overlayColor: WidgetStateProperty.all<Color>(olightGren),
+                  foregroundColor: WidgetStateProperty.all<Color>(ogrentext),
                 ),
                 onPressed: () {
                   tmp = log;
@@ -577,9 +577,9 @@ Widget build(BuildContext context) {
               if (!(log.actionStat == "1" && myCompanyNumber == "10020")) 
                 TextButton(
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
-                    overlayColor: MaterialStateProperty.all<Color>(Color(0xffecb1c5)),
-                    foregroundColor: MaterialStateProperty.all<Color>(Color(0xffbf2056)),
+                    backgroundColor: WidgetStateProperty.all<Color>(Colors.transparent),
+                    overlayColor: WidgetStateProperty.all<Color>(Color(0xffecb1c5)),
+                    foregroundColor: WidgetStateProperty.all<Color>(Color(0xffbf2056)),
                   ),
                   child: Text('${arEn('رفض', 'REJECT')}'),
                   onPressed: () {

@@ -47,12 +47,10 @@ class _TimerxState extends State<Timerx> {
       oneSec,
       (Timer timer) => setState(
         () {
-          if (currentTime != null) {
-            currentTime = DateTime.now().add(new Duration(minutes: def * -1));
-            hh = timeFormat.format(currentTime);
-            hh2 = dateFormat.format(currentTime);
-          }
-        },
+          currentTime = DateTime.now().add(new Duration(minutes: def * -1));
+          hh = timeFormat.format(currentTime);
+          hh2 = dateFormat.format(currentTime);
+                },
       ),
     );
   }

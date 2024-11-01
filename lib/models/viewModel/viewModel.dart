@@ -25,7 +25,6 @@ abstract class ViewModel {
 
   ViewModel() : propertyChanges = PublishSubject<PropertyChangedEvent>();
   bool isBlank(String s) {
-    if (s == null) return false;
     if (s == "") return false;
     return true;
   }
@@ -36,7 +35,6 @@ abstract class ViewModel {
       TPropertyType currentValue,
       TPropertyType newValue,
       SetValue<TPropertyType> setNewValue) {
-    assert(setNewValue != null);
 
     if (currentValue == newValue) {
       return false;

@@ -30,7 +30,7 @@ target 'Runner' do
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
   pod 'flutter_local_notifications', :path => '.symlinks/plugins/flutter_local_notifications/ios'
- 
+  pod 'Firebase/Messaging'
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
 end
 
